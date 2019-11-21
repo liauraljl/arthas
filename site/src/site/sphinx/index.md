@@ -5,7 +5,9 @@ Arthas 用户文档
 
 ## Arthas（阿尔萨斯） 能为你做什么？
 
-![arthas](arthas.png)
+![](arthas.png)
+
+**Arthas 正在参加2019年度最受欢迎开源中国软件评选，请大家投票支持！[查看](https://www.oschina.net/p/arthas)**
 
 `Arthas` 是Alibaba开源的Java诊断工具，深受开发者喜爱。
 
@@ -24,7 +26,7 @@ Arthas 用户文档
 
 Contents
 --------
-
+* [最受欢迎开源中国软件评选](https://www.oschina.net/p/arthas)
 * [English Docs](https://alibaba.github.io/arthas/en/)
 * [在线教程(推荐)](https://alibaba.github.io/arthas/arthas-tutorials?language=cn)
 * [安装](install-detail.md)
@@ -32,12 +34,13 @@ Contents
 * [快速入门](quick-start.md)
 * [进阶使用](advanced-use.md)
 * [命令列表](commands.md)
+* [WebConsole](web-console.md)
 * [Docker](docker.md)
 * [用户案例](https://github.com/alibaba/arthas/issues?q=label%3Auser-case)
 * [常见问题](https://github.com/alibaba/arthas/issues?q=label%3Aquestion-answered)
 * [Fork me at GitHub](https://github.com/alibaba/arthas)
-* [编译调试/参与贡献](https://github.com/alibaba/arthas/blob/master/CONTRIBUTING.md)
-* [Release Notes](release-notes.md)
+* [编译调试/参与贡献](https://github.com/alibaba/arthas/blob/master/CONTRIBUTING.md#)
+* [Release Notes](https://github.com/alibaba/arthas/releases)
 * [QQ群/钉钉群](contact-us.md)
 
 

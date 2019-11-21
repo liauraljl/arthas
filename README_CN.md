@@ -4,6 +4,8 @@
 
 ![arthas](site/src/site/sphinx/arthas.png)
 
+**Arthas 正在参加2019年度最受欢迎开源中国软件评选，请大家投票支持！[查看](https://www.oschina.net/p/arthas)**
+
 [![Build Status](https://travis-ci.org/alibaba/arthas.svg?branch=master)](https://travis-ci.org/alibaba/arthas)
 [![codecov](https://codecov.io/gh/alibaba/arthas/branch/master/graph/badge.svg)](https://codecov.io/gh/alibaba/arthas)
 [![maven](https://img.shields.io/maven-central/v/com.taobao.arthas/arthas-packaging.svg)](https://search.maven.org/search?q=g:com.taobao.arthas)
@@ -39,7 +41,7 @@ English version goes [here](README.md).
 下载`arthas-boot.jar`，然后用`java -jar`的方式启动：
 
 ```bash
-wget https://alibaba.github.io/arthas/arthas-boot.jar
+curl -O https://alibaba.github.io/arthas/arthas-boot.jar
 java -jar arthas-boot.jar
 ```
 
@@ -70,14 +72,16 @@ curl -L https://alibaba.github.io/arthas/install.sh | sh
 * [在线教程(推荐)](https://alibaba.github.io/arthas/arthas-tutorials?language=cn)
 * [用户文档](https://alibaba.github.io/arthas/)
 * [安装](https://alibaba.github.io/arthas/install-detail.html)
+* [下载](https://alibaba.github.io/arthas/download.html)
 * [快速入门](https://alibaba.github.io/arthas/quick-start.html)
 * [进阶使用](https://alibaba.github.io/arthas/advanced-use.html)
 * [命令列表](https://alibaba.github.io/arthas/commands.html)
+* [WebConsole](https://alibaba.github.io/arthas/web-console.html)
 * [Docker](https://alibaba.github.io/arthas/docker.html)
 * [用户案例](https://github.com/alibaba/arthas/issues?q=label%3Auser-case)
 * [常见问题](https://github.com/alibaba/arthas/issues?utf8=%E2%9C%93&q=label%3Aquestion-answered+)
 * [编译调试/参与贡献](https://github.com/alibaba/arthas/blob/master/CONTRIBUTING.md)
-* [Release Notes](https://alibaba.github.io/arthas/release-notes.html)
+* [Release Notes](https://github.com/alibaba/arthas/releases)
 * [QQ群/钉钉群](https://alibaba.github.io/arthas/contact-us.html)
 
 Gitee文档镜像： https://arthas.gitee.io/
@@ -422,7 +426,18 @@ $ classloader
 ![伙伴集团](static/zhaoshang800.png)
 ![数梦工场](static/dtdream.png)
 ![安恒信息](static/dbappsecurity.png)
-
+![亚信科技](static/asiainfo.png)
+![云舒写](static/yunshuxie.png)
+![微住](static/iweizhu.png)
+![月亮小屋](static/bluemoon.png)
+![大搜车](static/souche.png)
+![今日图书](static/jinritushu.png)
+![竹间智能](static/emotibot.png)
+![数字认证](static/bjca.png)
+![360金融](static/360jinrong.png)
+![安居客](static/anjuke.jpg)
+![qunar](static/qunar.png)
+![ctrip](static/ctrip.png)
 ### 洐生项目
 
 * [Bistoury: 一个集成了Arthas的项目](https://github.com/qunarcorp/bistoury)

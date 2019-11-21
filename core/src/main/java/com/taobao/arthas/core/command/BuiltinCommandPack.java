@@ -2,6 +2,7 @@ package com.taobao.arthas.core.command;
 
 import com.taobao.arthas.core.command.basic1000.CatCommand;
 import com.taobao.arthas.core.command.basic1000.ClsCommand;
+import com.taobao.arthas.core.command.basic1000.GrepCommand;
 import com.taobao.arthas.core.command.basic1000.HelpCommand;
 import com.taobao.arthas.core.command.basic1000.HistoryCommand;
 import com.taobao.arthas.core.command.basic1000.KeymapCommand;
@@ -26,11 +27,13 @@ import com.taobao.arthas.core.command.klass100.OgnlCommand;
 import com.taobao.arthas.core.command.klass100.RedefineCommand;
 import com.taobao.arthas.core.command.klass100.SearchClassCommand;
 import com.taobao.arthas.core.command.klass100.SearchMethodCommand;
+import com.taobao.arthas.core.command.logger.LoggerCommand;
 import com.taobao.arthas.core.command.monitor200.DashboardCommand;
 import com.taobao.arthas.core.command.monitor200.HeapDumpCommand;
 import com.taobao.arthas.core.command.monitor200.JvmCommand;
 import com.taobao.arthas.core.command.monitor200.MBeanCommand;
 import com.taobao.arthas.core.command.monitor200.MonitorCommand;
+import com.taobao.arthas.core.command.monitor200.ProfilerCommand;
 import com.taobao.arthas.core.command.monitor200.StackCommand;
 import com.taobao.arthas.core.command.monitor200.ThreadCommand;
 import com.taobao.arthas.core.command.monitor200.TimeTunnelCommand;
@@ -93,9 +96,12 @@ public class BuiltinCommandPack implements CommandResolver {
         commands.add(Command.create(SystemPropertyCommand.class));
         commands.add(Command.create(SystemEnvCommand.class));
         commands.add(Command.create(VMOptionCommand.class));
+        commands.add(Command.create(LoggerCommand.class));
         commands.add(Command.create(HistoryCommand.class));
         commands.add(Command.create(CatCommand.class));
         commands.add(Command.create(PwdCommand.class));
         commands.add(Command.create(MBeanCommand.class));
+        commands.add(Command.create(GrepCommand.class));
+        commands.add(Command.create(ProfilerCommand.class));
     }
 }

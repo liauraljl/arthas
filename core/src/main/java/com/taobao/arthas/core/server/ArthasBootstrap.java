@@ -9,7 +9,7 @@ import com.taobao.arthas.core.shell.command.CommandResolver;
 import com.taobao.arthas.core.shell.handlers.BindHandler;
 import com.taobao.arthas.core.shell.impl.ShellServerImpl;
 import com.taobao.arthas.core.shell.term.impl.HttpTermServer;
-import com.taobao.arthas.core.shell.term.impl.TelnetTermServer;
+import com.taobao.arthas.core.shell.term.impl.httptelnet.HttpTelnetTermServer;
 import com.taobao.arthas.core.util.ArthasBanner;
 import com.taobao.arthas.core.util.Constants;
 import com.taobao.arthas.core.util.LogUtil;
@@ -18,6 +18,7 @@ import com.taobao.middleware.logger.Logger;
 
 import io.netty.channel.ChannelFuture;
 
+import java.io.File;
 import java.io.IOException;
 import java.lang.instrument.Instrumentation;
 import java.lang.reflect.Method;
@@ -49,9 +50,15 @@ public class ArthasBootstrap {
     private ExecutorService executorService;
     private TunnelClient tunnelClient;
 
+    private File arthasOutputDir;
+
     private ArthasBootstrap(int pid, Instrumentation instrumentation) {
         this.pid = pid;
         this.instrumentation = instrumentation;
+
+        String outputPath = System.getProperty("arthas.output.dir", "arthas-output");
+        arthasOutputDir = new File(outputPath);
+        arthasOutputDir.mkdirs();
 
         executorService = Executors.newCachedThreadPool(new ThreadFactory() {
             @Override
@@ -89,7 +96,7 @@ public class ArthasBootstrap {
 
         String agentId = null;
         try {
-            if (configure.getHttpPort() > 0) {
+            if (configure.getTunnelServer() != null && configure.getHttpPort() > 0) {
                 tunnelClient = new TunnelClient();
                 tunnelClient.setId(configure.getAgentId());
                 tunnelClient.setTunnelServerUrl(configure.getTunnelServer());
@@ -127,7 +134,7 @@ public class ArthasBootstrap {
             resolvers.add(builtinCommands);
             // TODO: discover user provided command resolver
             if (configure.getTelnetPort() > 0) {
-                shellServer.registerTermServer(new TelnetTermServer(configure.getIp(), configure.getTelnetPort(),
+                shellServer.registerTermServer(new HttpTelnetTermServer(configure.getIp(), configure.getTelnetPort(),
                                 options.getConnectionTimeout()));
             } else {
                 logger.info("telnet port is {}, skip bind telnet server.", configure.getTelnetPort());
@@ -148,6 +155,10 @@ public class ArthasBootstrap {
             logger.info("as-server listening on network={};telnet={};http={};timeout={};", configure.getIp(),
                     configure.getTelnetPort(), configure.getHttpPort(), options.getConnectionTimeout());
             // 异步回报启动次数
+            if (configure.getStatUrl() != null) {
+                logger.info("arthas stat url: {}", configure.getStatUrl());
+            }
+            UserStatUtil.setStatUrl(configure.getStatUrl());
             UserStatUtil.arthasStart();
 
             logger.info("as-server started in {} ms", System.currentTimeMillis() - start );
